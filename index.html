@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linguistic Device Tool</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Tonal Tool</title>
 </head>
 <body>
+
     <div class="container">
-        <h1>Linguistic Device Tool</h1>
-        <form id="goalForm">
-            <label for="contentGoal">Select Content Goal:</label>
-            <select id="contentGoal" name="contentGoal">
-                <option value="enhancedMemorability">Enhanced Memorability</option>
-                <option value="toneAndMood">Establishing Tone and Mood</option>
-                <option value="brandVoice">Creating a Cohesive Brand Voice</option>
-                <option value="improvingReadability">Improving Readability</option>
-                <option value="drawingAttention">Drawing Attention to Key Points</option>
-                <option value="elicitingEmotionalResponses">Eliciting Emotional Responses</option>
-                <option value="aidingLocalization">Aiding Localization</option>
-            </select>
-            <button type="button" onclick="tonify()">Tonify</button>
-        </form>
-        <div id="resultContainer"></div>
+        <h1>Content Goals</h1>
+
+        <label for="contentGoals">Select a Content Goal:</label>
+        <select id="contentGoals">
+            <option value="memorability">Enhanced Memorability</option>
+            <option value="toneMood">Establishing Tone and Mood</option>
+            <option value="brandVoice">Creating a Cohesive Brand Voice</option>
+            <option value="readability">Improving Readability</option>
+            <option value="attention">Drawing Attention to Key Points</option>
+            <option value="emotionalResponses">Eliciting Emotional Responses</option>
+            <option value="localization">Aiding Localization</option>
+        </select>
+
+        <button onclick="getTonal()">Get Tonal</button>
+
+        <div id="result"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
