@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linguistic Device Recommender</title>
+    <title>Linguistic Device Tool</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Linguistic Device Recommender</h1>
-        <form id="recommendationForm">
-            <label for="contentGoals">Select Content Goals:</label>
-            <select id="contentGoals" multiple>
-                <option value="Enhanced Memorability">Enhanced Memorability</option>
-                <option value="Establishing Tone and Mood">Establishing Tone and Mood</option>
-                <!-- Add more content goals as needed -->
+        <h1>Linguistic Device Tool</h1>
+        <form id="goalForm">
+            <label for="contentGoal">Select Content Goal:</label>
+            <select id="contentGoal" name="contentGoal">
+                <option value="enhancedMemorability">Enhanced Memorability</option>
+                <option value="toneAndMood">Establishing Tone and Mood</option>
+                <option value="brandVoice">Creating a Cohesive Brand Voice</option>
+                <option value="improvingReadability">Improving Readability</option>
+                <option value="drawingAttention">Drawing Attention to Key Points</option>
+                <option value="elicitingEmotionalResponses">Eliciting Emotional Responses</option>
+                <option value="aidingLocalization">Aiding Localization</option>
             </select>
-            <button type="button" onclick="recommendDevices()">Get Recommendations</button>
+            <button type="button" onclick="getExamples()">Get Examples</button>
         </form>
-        <div id="recommendations"></div>
+        <div id="resultContainer"></div>
     </div>
     <script src="script.js"></script>
 </body>
