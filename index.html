@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linguistic Enhancement Tool</title>
+  <title>Linghance</title>
   <style>
     body {
       font-family: 'Helvetica Neue', sans-serif;
@@ -63,7 +63,7 @@
 </head>
 <body>
 
-  <h1>Linguistic Enhancement Tool</h1>
+  <h1>Linghance - Linguistic Enhancement Tool</h1>
 
   <label for="inputText">Enter your text:</label>
   <textarea id="inputText" placeholder="Type your text here..."></textarea>
@@ -97,32 +97,4 @@
     function applyLinguisticDevice(text, device) {
       switch (device) {
         case 'alliteration':
-          // Placeholder function for alliteration transformation
-          return applyAlliteration(text);
-        // Add more cases for other linguistic devices
-        default:
-          return text;
-      }
-    }
-
-    function applyAlliteration(text) {
-      // Placeholder implementation for alliteration
-      // This is a simple example and might not cover all cases
-      return text.replace(/\b(\w)(\w*)\b/g, function(_, first, rest) {
-        return first.toUpperCase() + rest.toLowerCase();
-      });
-    }
-
-    function getLinguisticDeviceDescription(device) {
-      switch (device) {
-        case 'alliteration':
-          return "Alliteration can make the text more memorable. The repetition of consonant sounds creates a rhythmic and melodic quality, making the content stand out and facilitating easier recall. This is particularly beneficial for conveying important information or key messages.";
-        // Add more descriptions for other linguistic devices
-        default:
-          return "";
-      }
-    }
-  </script>
-
-</body>
-</html>
+          return generateAlliteration(text);
