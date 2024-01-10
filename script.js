@@ -1,58 +1,39 @@
-function tonify() {
-    const goalSelect = document.getElementById("contentGoal");
-    const selectedGoal = goalSelect.value;
-    const resultContainer = document.getElementById("resultContainer");
+function transformText() {
+  const inputText = document.getElementById('inputText').value;
+  const linguisticDevice = document.getElementById('linguisticDevice').value;
 
-    let examples = "";
-    let explanation = "";
+  let transformedText = applyLinguisticDevice(inputText, linguisticDevice);
+  const description = getLinguisticDeviceDescription(linguisticDevice);
 
-    switch (selectedGoal) {
-        case "enhancedMemorability":
-            examples = `
-                <p>Example for Fashion E-commerce:</p>
-                <p>Before: "Discover our new collection of chic knitwear."</p>
-                <p>With Assonance: "Wrap yourself in the warmth of our blissful knits."</p>
-            `;
-            explanation = "Assonance can make the text more memorable by creating a rhythmic and melodic quality to the language.";
-            break;
+  document.getElementById('transformedText').innerText = transformedText;
+  document.getElementById('description').innerText = description;
+}
 
-        case "toneAndMood":
-            examples = `
-                <p>Example for Electronics E-commerce:</p>
-                <p>Before: "Explore the latest in cutting-edge technology."</p>
-                <p>With Assonance: "Dive into the excitement of the next-gen tech."</p>
-            `;
-            explanation = "Assonance contributes to the tone and mood of the copy. For example, vibrant and playful vowel sounds for a young audience.";
-            break;
+function applyLinguisticDevice(text, device) {
+  switch (device) {
+    case 'alliteration':
+      // Placeholder function for alliteration transformation
+      return applyAlliteration(text);
+    // Add more cases for other linguistic devices
+    default:
+      return text;
+  }
+}
 
-        case "brandVoice":
-            examples = `
-                <p>Example for Fashion E-commerce:</p>
-                <p>Before: "Elevate your style with our new selection."</p>
-                <p>With Consonance: "Step into chic elegance with our latest collection."</p>
-            `;
-            explanation = "Consonance contributes to a unified brand voice. For instance, aligning consonance with the desired brand personality.";
-            break;
+function applyAlliteration(text) {
+  // Placeholder implementation for alliteration
+  // This is a simple example and might not cover all cases
+  return text.replace(/\b(\w)(\w*)\b/g, function(_, first, rest) {
+    return first.toUpperCase() + rest.toLowerCase();
+  });
+}
 
-        case "improvingReadability":
-            examples = `
-                <p>Example for Electronics E-commerce:</p>
-                <p>Before: "Experience cutting-edge technology at its best."</p>
-                <p>With Consonance: "Explore the excellence of our latest tech advancements."</p>
-            `;
-            explanation = "Consonance improves the overall readability of the copy. For example, creating a sense of cohesion.";
-            break;
-
-        // Add cases for other content goals
-
-        default:
-            examples = "No examples available.";
-            explanation = "";
-    }
-
-    resultContainer.innerHTML = `
-        <h2>Examples for ${selectedGoal}</h2>
-        <div>${explanation}</div>
-        <div>${examples}</div>
-    `;
+function getLinguisticDeviceDescription(device) {
+  switch (device) {
+    case 'alliteration':
+      return "Alliteration can make the text more memorable. The repetition of consonant sounds creates a rhythmic and melodic quality, making the content stand out and facilitating easier recall. This is particularly beneficial for conveying important information or key messages.";
+    // Add more descriptions for other linguistic devices
+    default:
+      return "";
+  }
 }
