@@ -1,32 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Tonify</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linguistic Enhancement Tool</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+
+    #transformedText, #description {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Content Goals</h1>
+  <h1>Linguistic Enhancement Tool</h1>
 
-        <label for="contentGoals">Select a Content Goal:</label>
-        <select id="contentGoals">
-            <option value="memorability">Enhanced Memorability</option>
-            <option value="toneMood">Establishing Tone and Mood</option>
-            <option value="brandVoice">Creating a Cohesive Brand Voice</option>
-            <option value="readability">Improving Readability</option>
-            <option value="attention">Drawing Attention to Key Points</option>
-            <option value="emotionalResponses">Eliciting Emotional Responses</option>
-            <option value="localization">Aiding Localization</option>
-        </select>
+  <label for="inputText">Enter your text:</label>
+  <textarea id="inputText" placeholder="Type your text here..."></textarea>
 
-        <button onclick="Tonify()">Tonify</button>
+  <label for="linguisticDevice">Select a linguistic device:</label>
+  <select id="linguisticDevice">
+    <option value="alliteration">Alliteration</option>
+    <!-- Add more linguistic devices as needed -->
+  </select>
 
-        <div id="result"></div>
-    </div>
+  <button onclick="transformText()">Transform Text</button>
 
-    <script src="script.js"></script>
+  <div id="result">
+    <h2>Transformed Text:</h2>
+    <p id="transformedText"></p>
+    <p id="description"></p>
+  </div>
+
+  <script>
+    function transformText() {
+      const inputText = document.getElementById('inputText').value;
+      const linguisticDevice = document.getElementById('linguisticDevice').value;
+
+      let transformedText = applyLinguisticDevice(inputText, linguisticDevice);
+      const description = getLinguisticDeviceDescription(linguisticDevice);
+
+      document.getElementById('transformedText').innerText = transformedText;
+      document.getElementById('description').innerText = description;
+    }
+
+    function applyLinguisticDevice(text, device) {
+      switch (device) {
+        case 'alliteration':
+          // Placeholder function for alliteration transformation
+          return applyAlliteration(text);
+        // Add more cases for other linguistic devices
+        default:
+          return text;
+      }
+    }
+
+    function applyAlliteration(text) {
+      // Placeholder implementation for alliteration
+      // This is a simple example and might not cover all cases
+      return text.replace(/\b(\w)(\w*)\b/g, function(_, first, rest) {
+        return first.toUpperCase() + rest.toLowerCase();
+      });
+    }
+
+    function getLinguisticDeviceDescription(device) {
+      switch (device) {
+        case 'alliteration':
+          return "Alliteration can make the text more memorable. The repetition of consonant sounds creates a rhythmic and melodic quality, making the content stand out and facilitating easier recall. This is particularly beneficial for conveying important information or key messages.";
+        // Add more descriptions for other linguistic devices
+        default:
+          return "";
+      }
+    }
+  </script>
+
 </body>
 </html>
